@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/Pericles/Projects/insider/notebooks/mlruns/186875546635240734/85e7f508b8344b928b5cc26d7896dd2a/artifacts
+end_time: 1750450413194
+entry_point_name: ''
+experiment_id: '186875546635240734'
+lifecycle_stage: active
+run_id: 85e7f508b8344b928b5cc26d7896dd2a
+run_name: Random Forest
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750450403092
+status: 3
+tags: []
+user_id: Pericles
