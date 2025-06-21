@@ -1,0 +1,22 @@
+artifact_path: file:///c:/Users/Pericles/Projects/insider/notebooks/mlruns/488789429135153128/models/m-cc51ae7b33214d03aeb9f6ad7bec9c72/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.3
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.0
+mlflow_version: 3.1.0
+model_id: m-cc51ae7b33214d03aeb9f6ad7bec9c72
+model_size_bytes: 185078
+model_uuid: m-cc51ae7b33214d03aeb9f6ad7bec9c72
+prompts: null
+run_id: cd9b491dbc9244d4aa91974294f6eece
+utc_time_created: '2025-06-21 02:12:36.116340'

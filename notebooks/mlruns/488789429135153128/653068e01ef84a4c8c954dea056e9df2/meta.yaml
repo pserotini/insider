@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/Pericles/Projects/insider/notebooks/mlruns/488789429135153128/653068e01ef84a4c8c954dea056e9df2/artifacts
+end_time: 1750471946430
+entry_point_name: ''
+experiment_id: '488789429135153128'
+lifecycle_stage: active
+run_id: 653068e01ef84a4c8c954dea056e9df2
+run_name: Gradient Boosting
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750471940637
+status: 3
+tags: []
+user_id: Pericles

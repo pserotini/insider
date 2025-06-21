@@ -1,0 +1,10 @@
+artifact_location: file:///c:/Users/Pericles/Projects/insider/notebooks/mlruns/488789429135153128/models/m-d8cbc1359f8242e5bac6cd32e471f3e3/artifacts
+creation_timestamp: 1750471951150
+experiment_id: '488789429135153128'
+last_updated_timestamp: 1750471955391
+model_id: m-d8cbc1359f8242e5bac6cd32e471f3e3
+model_type: null
+name: Naive Bayes
+source_run_id: a263d21c5811412c8575e7fc9bea0085
+status: 2
+status_message: null

@@ -1,0 +1,10 @@
+artifact_location: file:///c:/Users/Pericles/Projects/insider/notebooks/mlruns/488789429135153128/models/m-d8968b8dd99946188082864fdf96b460/artifacts
+creation_timestamp: 1750471931152
+experiment_id: '488789429135153128'
+last_updated_timestamp: 1750471935298
+model_id: m-d8968b8dd99946188082864fdf96b460
+model_type: null
+name: Decision Tree
+source_run_id: d4e601189e7d4001b28c203cd82d942b
+status: 2
+status_message: null

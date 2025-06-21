@@ -1,0 +1,10 @@
+artifact_location: file:///c:/Users/Pericles/Projects/insider/notebooks/mlruns/488789429135153128/models/m-cc51ae7b33214d03aeb9f6ad7bec9c72/artifacts
+creation_timestamp: 1750471956029
+experiment_id: '488789429135153128'
+last_updated_timestamp: 1750471960049
+model_id: m-cc51ae7b33214d03aeb9f6ad7bec9c72
+model_type: null
+name: Bagging
+source_run_id: cd9b491dbc9244d4aa91974294f6eece
+status: 2
+status_message: null

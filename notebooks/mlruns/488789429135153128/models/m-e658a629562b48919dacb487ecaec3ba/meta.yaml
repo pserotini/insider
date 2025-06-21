@@ -1,0 +1,10 @@
+artifact_location: file:///c:/Users/Pericles/Projects/insider/notebooks/mlruns/488789429135153128/models/m-e658a629562b48919dacb487ecaec3ba/artifacts
+creation_timestamp: 1750471946702
+experiment_id: '488789429135153128'
+last_updated_timestamp: 1750471950857
+model_id: m-e658a629562b48919dacb487ecaec3ba
+model_type: null
+name: KNN
+source_run_id: 2366168b6970470e96c2431724d7c0ea
+status: 2
+status_message: null
