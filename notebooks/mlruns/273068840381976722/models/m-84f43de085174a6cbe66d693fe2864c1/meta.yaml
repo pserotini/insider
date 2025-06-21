@@ -1,0 +1,10 @@
+artifact_location: file:///c:/Users/Pericles/Projects/insider/notebooks/mlruns/273068840381976722/models/m-84f43de085174a6cbe66d693fe2864c1/artifacts
+creation_timestamp: 1750470560544
+experiment_id: '273068840381976722'
+last_updated_timestamp: 1750470564465
+model_id: m-84f43de085174a6cbe66d693fe2864c1
+model_type: null
+name: SVM
+source_run_id: 051f88978bc14970bdf4b7460ea60d5c
+status: 2
+status_message: null

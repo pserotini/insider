@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/Pericles/Projects/insider/notebooks/mlruns/273068840381976722/b5da44b0482f435fbdb7933b4530515e/artifacts
+end_time: 1750470583307
+entry_point_name: ''
+experiment_id: '273068840381976722'
+lifecycle_stage: active
+run_id: b5da44b0482f435fbdb7933b4530515e
+run_name: Bagging
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750470578557
+status: 3
+tags: []
+user_id: Pericles

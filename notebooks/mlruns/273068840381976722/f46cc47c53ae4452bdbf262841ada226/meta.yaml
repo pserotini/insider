@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/Pericles/Projects/insider/notebooks/mlruns/273068840381976722/f46cc47c53ae4452bdbf262841ada226/artifacts
+end_time: 1750470578540
+entry_point_name: ''
+experiment_id: '273068840381976722'
+lifecycle_stage: active
+run_id: f46cc47c53ae4452bdbf262841ada226
+run_name: Naive Bayes
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750470574674
+status: 3
+tags: []
+user_id: Pericles
