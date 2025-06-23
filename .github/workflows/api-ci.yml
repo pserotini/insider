@@ -56,10 +56,17 @@ jobs:
           script: |
             cd ~/insider
 
-            # Parar e remover qualquer container com nome titanic-api
-            docker ps -q --filter "name=titanic-api" | xargs -r docker stop
-            docker ps -a -q --filter "name=titanic-api" | xargs -r docker rm
+            echo "==> Parando containers que usam a porta 8000 (se houver)"
+            docker ps -q --filter "publish=8000" | xargs -r docker stop
 
-            # Build e run
+            echo "==> Removendo containers que usam a porta 8000 (se houver)"
+            docker ps -a -q --filter "publish=8000" | xargs -r docker rm -f
+
+            echo "==> Removendo container chamado 'titanic-api' (se existir)"
+            docker rm -f titanic-api || true
+
+            echo "==> Buildando imagem"
             docker build -t titanic-api .
+
+            echo "==> Subindo novo container"
             docker run -d --name titanic-api -p 8000:8000 titanic-api
