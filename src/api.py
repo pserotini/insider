@@ -7,16 +7,16 @@ import logging
 from contextlib import asynccontextmanager
 from src.preprocessing import TitanicPreprocessor
 
-# Logging
+# logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Variáveis globais
+# variáveis globais
 model = None
 preprocessor = None
 history = []
 
-# Schemas
+# schemas
 class InputData(BaseModel):
     pclass: int
     name: str
@@ -30,9 +30,9 @@ class InputData(BaseModel):
     embarked: str
     passengerid: int
 
-    model_config = ConfigDict(extra="forbid") # Reforçar schema
+    model_config = ConfigDict(extra="forbid") # reforçar schema
 
-# Funções de carregamento
+# funções de carregamento
 def load_model(model_path: str = "./notebooks/pickle_files/selected_model.pkl"):
     global model
     model = joblib.load(model_path)
@@ -49,10 +49,10 @@ async def lifespan(app: FastAPI):
     load_preprocessor()
     yield
 
-# Inicialização do FastAPI com lifespan
+# inicialização do fastapi com lifespan
 app = FastAPI(lifespan=lifespan)
 
-# Endpoints
+# endpoints
 @app.get("/health")
 def health():
     return {"status": "ok"}
