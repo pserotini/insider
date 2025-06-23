@@ -21,7 +21,7 @@ jobs:
           pip install -r requirements_api.txt
           pip install pytest requests
 
-      - name: Start FastAPI in background
+      - name: Start FastAPI em segundo plano
         run: |
           uvicorn src.api:app --host 0.0.0.0 --port 8000 &
           sleep 5
@@ -38,15 +38,16 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v3
 
-      - name: Limpar pasta antiga e copiar arquivos via SCP
+      - name: Limpar pasta insider na EC2
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            echo "==> Apagando conteúdo antigo da pasta insider"
-            rm -rf ~/insider/*
+            echo "==> Deletando completamente a pasta insider"
+            rm -rf ~/insider
+            mkdir ~/insider
 
       - name: Copiar arquivos para EC2 via SCP
         uses: appleboy/scp-action@v0.1.4
