@@ -1,0 +1,55 @@
+name: API CI/CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test-api:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout do repositório
+      uses: actions/checkout@v3
+
+    - name: Instalar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Instalar dependências da API
+      run: |
+        pip install -r requirements_api.txt
+        pip install pytest requests
+
+    - name: Rodar testes com pytest
+      run: pytest tests
+
+  deploy-to-ec2:
+    needs: test-api
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do repositório
+      uses: actions/checkout@v3
+
+    - name: Copiar arquivos para EC2 via SSH
+      uses: appleboy/scp-action@v0.1.4
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ec2-user
+        key: ${{ secrets.EC2_SSH_KEY }}
+        source: "."
+        target: "~/insider"
+
+    - name: Rodar Docker na EC2 via SSH
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ec2-user
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          cd ~/insider
+          docker stop titanic-api || true
+          docker rm titanic-api || true
+          docker build -t titanic-api .
+          docker run -d --name titanic-api -p 8000:8000 titanic-api
