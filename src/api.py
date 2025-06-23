@@ -43,7 +43,6 @@ def load_preprocessor(preprocessor_path: str = "./notebooks/pickle_files/preproc
     preprocessor = joblib.load(preprocessor_path)
     logger.info(f"Pré-processador carregado: {preprocessor_path}")
 
-# Lifespan context
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     load_model()
@@ -64,9 +63,19 @@ def predict(input_data: InputData, request: Request):
         raise HTTPException(status_code=500, detail="Modelo ou pré-processador não carregado")
 
     df = pd.DataFrame([input_data.model_dump()])
-    df_processed = preprocessor.transform(df)
 
-    prediction = model.predict(df_processed)[0]
+    try:
+        df_processed = preprocessor.transform(df)
+        print(f"df_processed:{df_processed}")
+    except ValueError as ve:
+        logger.error(f"Value error durante pré-processamento: {ve}")
+        raise HTTPException(status_code=422, detail=f"Value error durante pré-processamento: {ve}")        
+
+    try:
+        prediction = model.predict(df_processed)[0]
+    except ValueError as ve:
+        logger.error(f"Value error during prediction: {ve}")
+        raise HTTPException(status_code=422, detail=f"Value error during prediction: : {ve}")
 
     entry = {
         "ip": request.client.host if request.client else None,

@@ -1,0 +1,10 @@
+artifact_location: file:///c:/Users/Pericles/Projects/insider/notebooks/mlruns/488789429135153128/models/m-9d445db1d9674df7baccfbdecd827d67/artifacts
+creation_timestamp: 1750471923671
+experiment_id: '488789429135153128'
+last_updated_timestamp: 1750471930702
+model_id: m-9d445db1d9674df7baccfbdecd827d67
+model_type: null
+name: Random Forest
+source_run_id: 3e071c3d880e4935b13ff7ba5663b8bc
+status: 2
+status_message: null

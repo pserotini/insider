@@ -1,0 +1,10 @@
+artifact_location: file:///c:/Users/Pericles/Projects/insider/notebooks/mlruns/488789429135153128/models/m-78fa60a9513a47aaacf9e998a70ddfb8/artifacts
+creation_timestamp: 1750471942099
+experiment_id: '488789429135153128'
+last_updated_timestamp: 1750471946323
+model_id: m-78fa60a9513a47aaacf9e998a70ddfb8
+model_type: null
+name: Gradient Boosting
+source_run_id: 653068e01ef84a4c8c954dea056e9df2
+status: 2
+status_message: null

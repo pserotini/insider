@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/Pericles/Projects/insider/notebooks/mlruns/488789429135153128/2366168b6970470e96c2431724d7c0ea/artifacts
+end_time: 1750471950944
+entry_point_name: ''
+experiment_id: '488789429135153128'
+lifecycle_stage: active
+run_id: 2366168b6970470e96c2431724d7c0ea
+run_name: KNN
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750471946448
+status: 3
+tags: []
+user_id: Pericles

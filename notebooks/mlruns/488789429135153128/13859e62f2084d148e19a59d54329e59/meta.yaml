@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/Pericles/Projects/insider/notebooks/mlruns/488789429135153128/13859e62f2084d148e19a59d54329e59/artifacts
+end_time: 1750471940620
+entry_point_name: ''
+experiment_id: '488789429135153128'
+lifecycle_stage: active
+run_id: 13859e62f2084d148e19a59d54329e59
+run_name: SVM
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750471935419
+status: 3
+tags: []
+user_id: Pericles

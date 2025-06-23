@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/Pericles/Projects/insider/notebooks/mlruns/488789429135153128/d4e601189e7d4001b28c203cd82d942b/artifacts
+end_time: 1750471935401
+entry_point_name: ''
+experiment_id: '488789429135153128'
+lifecycle_stage: active
+run_id: d4e601189e7d4001b28c203cd82d942b
+run_name: Decision Tree
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750471930880
+status: 3
+tags: []
+user_id: Pericles
