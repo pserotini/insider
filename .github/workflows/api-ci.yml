@@ -10,12 +10,22 @@ jobs:
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v3
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
 
       - name: Instalar Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+      - name: Instalar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
 
+      - name: Instalar dependências da API
+        run: |
+          pip install -r requirements_api.txt
+          pip install pytest requests
       - name: Instalar dependências da API
         run: |
           pip install -r requirements_api.txt
@@ -26,7 +36,14 @@ jobs:
           uvicorn src.api:app --host 0.0.0.0 --port 8000 &
           sleep 5
           curl --fail http://localhost:8000/health
+      - name: Start FastAPI in background
+        run: |
+          uvicorn src.api:app --host 0.0.0.0 --port 8000 &
+          sleep 5
+          curl --fail http://localhost:8000/health
 
+      - name: Rodar testes com pytest
+        run: pytest tests
       - name: Rodar testes com pytest
         run: pytest tests
 
@@ -37,7 +54,17 @@ jobs:
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v3
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
 
+      - name: Copiar arquivos para EC2 via SCP
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "."
+          target: "~/insider"
       - name: Copiar arquivos para EC2 via SCP
         uses: appleboy/scp-action@v0.1.4
         with:
@@ -56,10 +83,17 @@ jobs:
           script: |
             cd ~/insider
 
-            # Parar e remover qualquer container com nome titanic-api
-            docker ps -q --filter "name=titanic-api" | xargs -r docker stop
-            docker ps -a -q --filter "name=titanic-api" | xargs -r docker rm
+            echo "==> Parando containers que usam a porta 8000 (se houver)"
+            docker ps -q --filter "publish=8000" | xargs -r docker stop
 
-            # Build e run
+            echo "==> Removendo containers que usam a porta 8000 (se houver)"
+            docker ps -a -q --filter "publish=8000" | xargs -r docker rm -f
+
+            echo "==> Removendo container chamado 'titanic-api' (se existir)"
+            docker rm -f titanic-api || true
+
+            echo "==> Buildando imagem"
             docker build -t titanic-api .
+
+            echo "==> Subindo novo container"
             docker run -d --name titanic-api -p 8000:8000 titanic-api
