@@ -1,4 +1,3 @@
-
 # Titanic Survival Prediction API
 
 Este projeto implementa uma solução de Machine Learning para prever a sobrevivência de passageiros do Titanic com base no dataset clássico disponível no Kaggle. O objetivo principal foi aplicar boas práticas de engenharia, modularização e exposição do modelo via API.
@@ -75,3 +74,21 @@ O teste principal compara as predições da API com predições pré-calculadas,
   "passengerid": 123
 }
 ```
+
+## Deploy em Produção
+
+A API está disponível publicamente em:
+
+**http://ec2-3-138-186-68.us-east-2.compute.amazonaws.com:8000**
+
+Você pode acessar diretamente a documentação interativa dos endpoints (Swagger UI) acessando essa URL.
+
+## CI/CD com GitHub Actions
+
+O repositório conta com uma pipeline de deploy automático configurada com GitHub Actions, que executa:
+
+- `pytest` para garantir que os testes passem antes do deploy
+- `scp` para copiar os arquivos para a instância EC2
+- `ssh` para parar o container anterior, rebuildar a imagem e rodar novamente a API com Docker
+
+Esse processo garante que, a cada push na branch `main`, a aplicação seja automaticamente atualizada na nuvem.
